@@ -121,14 +121,11 @@ function updateGameDisplay(optionButtonId) {
 
     let wordDisplay = itemContainer.textContent;
     wordSelection[wordDisplay] = optionValue;
-    console.log("Word Selection:", wordSelection);
     // Move to next Word and selection
     if (germanWords.length > position) {
         displayValue();
     } else {
         transitionToFinalScreen();
-        console.log('Went through all words');
-        console.log("Final Word Selection:", wordSelection);
     }
 }
 
@@ -180,15 +177,12 @@ function displayValue() {
     // Add Two other Random English
     let randomNumber1 = Math.floor(Math.random()*tempEnglishWords.length);
     optionList.push(tempEnglishWords[randomNumber1]);
-    // console.log('random number 1:', randomNumber1, 'list:', tempEnglishWords);
 
     // Remove added word
     tempEnglishWords.splice(randomNumber1, 1);
     let randomNumber2 = Math.floor(Math.random()*tempEnglishWords.length);
-    // console.log('random number 2:', randomNumber2, 'list:', tempEnglishWords);
 
     optionList.push(tempEnglishWords[randomNumber2]);
-    // console.log("option List:", optionList);
 
     // Shuffle Option List
     shuffle(optionList);
@@ -252,25 +246,24 @@ function resetScores() {
 
 
 // Form that decides word list to use
-async function selectWordList(e) {
+function selectWordList(e) {
     e.preventDefault();
     resetScores();
     keyword = getSelectedWords();
-    console.log("Word List:", keyword);
     if (keyword) {
-        await $.ajax({
+        $.ajax({
             type: "GET",
             url: "/process-data",
             contentType: 'application/json',
             data: {
                 keyword: keyword
+            },
+            success: function(data) {
+                wordList = JSON.parse(data);
+                showCountDown();
             }
-        }).done(function (value) {
-            wordList = value;
         });
-        showCountDown();
     }
-    console.log("WordList:", wordList);
 }
 
 

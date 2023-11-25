@@ -12,10 +12,9 @@ def csvDownload(request):
     keyword = request.GET.get('keyword')
 
     reader = []
-    url = staticfiles_storage.path('data/en-de_'+keyword+'.csv')
+    url = staticfiles_storage.path('staticfiles/en-de_'+keyword+'.csv')
     with open(url, 'r', newline='') as csvfile:
         reader = list(csv.DictReader(csvfile))
     
     data = json.dumps(reader)
-    print("data", data)
     return HttpResponse(data)
