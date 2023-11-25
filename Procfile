@@ -1,1 +1,1 @@
-web: gunicorn LanguageGame.wsgi
+web: gunicorn DjangoProjects.wsgi
