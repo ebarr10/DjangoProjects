@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>German Word Game</title>
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>German Word Game</h1>
+        </div>
+
+        <!-- Splash Page -->
+        <div class="card" id="splash-page">
+            <form id="start-form">
+                <div class="selection-container">
+                    <!-- Communication -->
+                    <div class="radio-container">
+                        <label for="basic-select">Basic Words</label>
+                        <input type="radio" name="words" id="basic-select" value="basic">
+                    </div>
+
+                    <!-- Essential -->
+                    <div class="radio-container">
+                        <label for="essential-select">Essential Words</label>
+                        <input type="radio" name="words" id="essential-select" value="essential">
+                    </div>
+
+                    <!-- Directions -->
+                    <div class="radio-container">
+                        <label for="direction-select">Direction Words</label>
+                        <input type="radio" name="words" id="direction-select" value="direction">
+                    </div>
+
+
+                    <!-- Surrounding -->
+                    <div class="radio-container">
+                        <label for="surrounding-select">Surrounding Words</label>
+                        <input type="radio" name="words" id="surrounding-select" value="surrounding">
+                    </div>
+
+
+                    <!-- Shopping -->
+                    <div class="radio-container">
+                        <label for="shopping-select">Shopping Words</label>
+                        <input type="radio" name="words" id="shopping-select" value="shopping">
+                    </div>
+
+                    <!-- Combination -->
+                    <div class="radio-container">
+                        <label for="combination-select">Combination Words</label>
+                        <input type="radio" name="words" id="combination-select" value="combination">
+                    </div>
+
+                    <div class="empty-space"></div>
+                </div>
+
+                <!-- Start Button -->
+                <div class="selection-footer">
+                    <button class="start" type="submit">Start Game</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Countdown Page -->
+        <div class="card" id="countdown-page" hidden>
+            <h1 class="countdown">3</h1>
+        </div>
+
+        <!-- Game Page -->
+        <div class="card" id="game-page" hidden>
+            <div class="game-display">
+                <!-- Item Container -->
+                <div class="item-container">German/English Word</div>
+
+                <!-- Word Options -->
+                <div class="item-footer">
+                    <button class="option" onclick="updateGameDisplay('option-1')" id="option-1">Option 1</button>
+                    <button class="option" onclick="updateGameDisplay('option-2')" id="option-2">Option 2</button>
+                    <button class="option" onclick="updateGameDisplay('option-3')" id="option-3">Option 3</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Score Page -->
+        <div class="card" id="score-page" hidden>
+            <div class="score-container">
+                <h1 class="title">Your Score</h1>
+                <div class="final-score-display">
+                    <div class="final-correct-score">Correct: 0</div>
+                    <div class="score-spacing">|</div>
+                    <div class="final-incorrect-score">Incorrect: 0</div>
+                </div>
+
+                <!-- Word Display Score -->
+                <div class="score-table">
+
+                    <!-- Column Title -->
+                    <div class="row-titles">
+                        <div class="goal"><b>Start</b></div>
+                        <div class="selected"><b>Selected</b></div>
+                        <div class="incorrect-value"><b>Incorrect</b></div>
+                    </div>
+
+                    <div class="rows-container"></div>
+
+                    <!-- Empty Space for Scrolling -->
+                    <div class="empty-space"></div>
+                </div>
+            </div>
+
+            <div class="score-footer">
+                <button class="play-again" id="play-again" onclick="playAgain()">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Script -->
+    <script src="../static/shuffle.js"></script>
+    <script src="../static/script.js"></script>
+</body>
+</html>
