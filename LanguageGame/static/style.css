@@ -65,6 +65,7 @@ input[type="radio"] {
 .selection-container {    
     position: relative;
     overflow-y: scroll;
+    height: 65vh;
 }
 
 .selection-container::-webkit-scrollbar {
@@ -216,16 +217,17 @@ button:active {
 }
 
 /* Score Table */
-
-#score-page {
-    height: 80vh;
-}
-
 .score-table {
     width: 90%;
     display: grid;
     grid-template-columns: 100%;
     padding-top: 15px;
+    overflow: scroll;
+    height: 500px;
+}
+
+.score-table::-webkit-scrollbar {
+    display: none;
 }
 
 .row,
@@ -243,7 +245,7 @@ button:active {
 }
 
 .empty-space {
-    padding-top: 20vh;
+    padding-top: 65px;
 }
 
 .correct {
@@ -283,7 +285,7 @@ button:active {
     }
 
     .empty-space {
-        padding-top: 30vh;
+        padding-top: 20px;
     }
 
     #score-page {
